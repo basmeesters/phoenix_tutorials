@@ -169,4 +169,23 @@ Repositories
 * Replace repo.ex with 'database' operations like get, all, etc.
 * Use iex -S mix to verify results
 
-Building a controller
+Coding views
+* Difference between views and templates
+* After passing through the controlleBar the request is send to the view
+* The view contains rendering functions to e.g. show HTML or JSON
+* Templates are raw markup languages with embedded Elixir code
+* code in <%= %> is elixir code that will be executed
+* code between <% %> is evaluated but not injected (side effect)
+
+Helpers
+* Use standard HTML functions with helpers (such as link)
+* Defined in web/web.ex
+* More about helpers in Phoenix.HTML documentation
+* Provide imports instead of changing web/web.ex
+
+Naming
+* Phoenix looks for UserView when in UserController & in templates/user for
+  templates
+* Use singular names
+
+Re-use (nesting) templates
