@@ -248,3 +248,15 @@ Building forms
 * Use changeset.action to catch errors on input in the client (see view).
 * Ecto.changeset holds everyting related to a database change, including errors.
   - You can do valiations before entering information in a database.
+
+Authenticating Users
+--------------------
+Preparing for authentication
+* Use comeonin library for hashing
+* application in mix.ex is a collection of modules that work together and can
+  be managed as a whole.
+
+Managing registration changesets
+* Use a new, separate changeset for valiating passwords
+  - This is slightly more work than conventional validation
+  - Easier to separate requirements and management regarding changesets
