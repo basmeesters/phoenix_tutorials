@@ -234,3 +234,17 @@ Defining user schema and migration
   Repo.get(User, 1).
 
 Building forms
+* Use phoenix form builders to allow creation of Users from the client
+* Ecto.Changeset let Ecto manage record changes, cast parameters, and perform
+  validations.
+* Provide a changeset function in your model to validate input.
+  - This is unconventional for persistence frameworks but avoids problems with
+    the one size fit all approach.
+  -
+* resources in router is a shorthand implementation for a common set of actions
+  that follow the REST convention.
+  - Use the only keyword to e.g. do not allow delete operations.
+  - Use `mix phoenix.routes` to see all available routes.
+* Use changeset.action to catch errors on input in the client (see view).
+* Ecto.changeset holds everyting related to a database change, including errors.
+  - You can do valiations before entering information in a database.
