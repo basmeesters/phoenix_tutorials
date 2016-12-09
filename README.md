@@ -201,3 +201,36 @@ Layouts
 * See `web/templates/layout/app.html.eex`
 * When you call render in your controller, you’re actually rendering with the
   :layout option set by default
+
+Ecto & changesets
+-----------------
+Use Ecto as a persistent database. API is the same as used until now. Ecto
+makes use of PostgreSQL.
+
+Understanding Ecto
+* Ecto is similar to Active Record.
+* Ecto has _changesets_ that hold all cahnges you want to perform on the
+  database.
+* Ecto is 'turned on' in `lib/project-name.ex`
+* Ecto is called in `lib/repo.ex`
+* `lib/config/devs.ex` contains username / password etc.
+
+Defining user schema and migration
+* Ecto uses a DSL for creating database fields, see `web/models/`
+* The 'model' is nothing more than a group of functions to transform data
+  according to our business requirements.
+* After having a Repo and User schema configured we need a migration.
+* `mix​​ ​​ecto.gen.migration​​ ​​create_user​`
+  - Creates a migration file with date.
+  - In here the change should be 'version-ed'.
+* Migrations help:
+  - Make changes manageable.
+  - Make rollbacks easier.
+  - Easier to build a fresh development environment because history is explicit.
+* `mix​​ ​​ecto.migrate​`
+  - We now migrated in our development environment, set MIX_ENV to change this.
+* `supervisor(Rumbl.Repo)` makes sure the process is controlled with OTP.
+* You can still use Ecto API functions such as Repo.all(User) or
+  Repo.get(User, 1).
+
+Building forms
