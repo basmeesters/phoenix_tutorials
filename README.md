@@ -189,3 +189,15 @@ Naming
 * Use singular names
 
 Re-use (nesting) templates
+* Use `render "user.html.eex"` to render a partial
+* A template can be rendered in html attributes
+  - e.g. `<td>render "x.html.eex"</td>`
+
+Layouts
+* When we call render in our controller, instead of rendering the desired view
+  directly, the controller first renders the layout view, which then renders the
+  actual template in a predefined markup. This allows developers to provide a
+  consistent markup across all pages without duplicating it over and over again.
+* See `web/templates/layout/app.html.eex`
+* When you call render in your controller, you’re actually rendering with the
+  :layout option set by default
