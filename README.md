@@ -260,3 +260,26 @@ Managing registration changesets
 * Use a new, separate changeset for valiating passwords
   - This is slightly more work than conventional validation
   - Easier to separate requirements and management regarding changesets
+
+Anatomy of a plug
+* There are two kinds of pllugs
+  - module_plugs: provides two functions with some config details.
+  - function_plugs: a single function
+* A typical plug transformers a connection
+  - takes a Plug.Conn and returns a Plug.Conn (after some steps)
+* Module plug has two functions
+  - init: compile-time work, results of init will go as argument to call
+  - call: run-time work
+
+Plug.conn fields
+* Cowboy is the default web server that Phoenix uses
+* host: required host (e.g. www.impact.com)
+* method: request method, e.g. GET, or POST
+* path_info: path members in a list
+* ... (and way more)
+
+Normally a plug comes in quite empty and is filled along the way (all the
+fields)
+
+Writing an Authentication Plug
+*
